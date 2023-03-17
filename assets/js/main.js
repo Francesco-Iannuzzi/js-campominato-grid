@@ -39,9 +39,43 @@ Tools:
 
 //creare il markup con un container al quale inseriremo in un secondo momento la griglia
 //creo un pulsante nel markup che tramite un selettore seleziono in js
-//creare un eventListenere che richiami il nodo nella DOM in cui stampare la griglia
+const buttonPlay = document.querySelector('.btn_play');
+//console.log(buttonPlay);
+
+//creo una variabile che richiami il nodo dellea DOM in cui stampare la grigli
+const containerEl = document.querySelector('.container');
+//console.log(containerEl);
+
+//creare un eventListenere che richiami il nodo nella DOM del bottone che stampi la griglia
+buttonPlay.addEventListener('click', function () {
+    console.log('cliccato');
+    
+})
+
+//creo una variabile contenente il markup da inserire
+//const cellMarkup = `<div class="cell">`
+//console.log(cellMarkup);
+
 //stilizzo la cella che formerà la griglia nel css e creo un ciclo che stampi n volte la cella stilizzata
-//nello stesso ciclo genero per ogni cella un numero che incrementa insieme alle celle
+
+//genero per la prima volta di prova la cella nel nodo della DOM dove dovrà apparire la griglia
+//containerEl.insertAdjacentHTML("beforeend", cellMarkup)
+
+//creo la variabile del numero massimo delle celle
+const cellNumber = 100;
+//const number = [];
+
+//creo un ciclo che stampi n volte la cella
+for (let i = 0; i < cellNumber; i++) {
+    const cellMarkup = `<div class="cell"></div>`;
+
+    //lo stesso ciclo deve generare grazie al suo indice un numero incrementale tante volte quante sono le celle
+    let number = i + 1;
+    console.log(number);
+
+    containerEl.insertAdjacentHTML("beforeend", cellMarkup);
+}
+
 //stampo nelle celle il numenero generato
 //seleziono la cella dalla DOM
 //creo un ciclo per aggiungere o togliere (toggle) una classe stilizzata in css che colori la cella e loggo il numero corrispondente alla cella in console

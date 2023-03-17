@@ -36,6 +36,12 @@ body
     border: 0;
 }
 
+.btn_play:hover
+{
+    border: 2px solid;
+    background-color: #ffd044;
+}
+
 #app_main
 {
     background-color: #00A86B;
@@ -52,8 +58,12 @@ body
 .cell
 {
     width: calc(100% / 10);
-    border: 1px solid white;
+    border: 2px solid white;
     aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
 }
 
 .bg_active
