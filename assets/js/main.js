@@ -46,11 +46,9 @@ const buttonPlay = document.querySelector('.btn_play');
 const containerEl = document.querySelector('.container');
 //console.log(containerEl);
 
-//creare un eventListenere che richiami il nodo nella DOM del bottone che stampi la griglia
-buttonPlay.addEventListener('click', function () {
-    console.log('cliccato');
-    
-})
+//creo la variabile del numero massimo delle celle
+const cellNumber = 100;
+//const numberArray = [];
 
 //creo una variabile contenente il markup da inserire
 //const cellMarkup = `<div class="cell">`
@@ -61,20 +59,29 @@ buttonPlay.addEventListener('click', function () {
 //genero per la prima volta di prova la cella nel nodo della DOM dove dovrà apparire la griglia
 //containerEl.insertAdjacentHTML("beforeend", cellMarkup)
 
-//creo la variabile del numero massimo delle celle
-const cellNumber = 100;
-//const number = [];
+//creare un eventListenere che richiami il nodo nella DOM del bottone che stampi la griglia
+buttonPlay.addEventListener('click', function () {
+    console.log('cliccato');
 
-//creo un ciclo che stampi n volte la cella
-for (let i = 0; i < cellNumber; i++) {
-    const cellMarkup = `<div class="cell"></div>`;
+    //creo un ciclo che stampi n volte la cella
+    for (let i = 0; i < cellNumber; i++) {
+        const cellMarkup = `<div class="cell"></div>`;
+        console.log(cellMarkup);
 
-    //lo stesso ciclo deve generare grazie al suo indice un numero incrementale tante volte quante sono le celle
-    let number = i + 1;
-    console.log(number);
+        //lo stesso ciclo deve generare grazie al suo indice un numero incrementale tante volte quante sono le celle
+        let number = i + 1;
+        console.log(number);
+        //numberArray.push(number);
 
-    containerEl.insertAdjacentHTML("beforeend", cellMarkup);
-}
+        containerEl.insertAdjacentHTML("beforeend", cellMarkup);
+
+    }
+
+})
+
+//seleziono il nodo nella DOM del markup creato(celle)
+const cellEl = document.querySelectorAll(".cell")
+console.log(cellEl);
 
 //stampo nelle celle il numenero generato
 //seleziono la cella dalla DOM
