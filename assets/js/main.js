@@ -42,7 +42,7 @@ Tools:
 const buttonPlay = document.querySelector('.btn_play');
 
 //creo una variabile che richiami il nodo dellea DOM in cui stampare la grigli
-const containerEl = document.querySelector('.container');
+let containerEl = document.querySelector('.container');
 
 //selezionare l'input della modalità nella DOM e salvarlo in una variabile
 const buttonSelect = document.querySelector('.btn_select');
@@ -77,10 +77,12 @@ buttonPlay.addEventListener('click', function () {
 
     }
 
+    //cancellare gli eventuali elementi già presenti nell'elemento in DOM in cui inserire la griglia
+    containerEl.innerHTML = ``;
 
     //creo un ciclo che stampi n volte la cella + il numero generato nel'array creato per i numeri
     for (let i = 0; i < cellNumber; i++) {
-        const cellMarkup = `<div class="cell ${mode} ">${numberArray[i]}</div>`;
+        let cellMarkup = `<div class="cell ${mode} ">${numberArray[i]}</div>`;
         //console.log(cellMarkup);
 
         //lo stesso ciclo deve generare grazie al suo indice un numero incrementale tante volte quante sono le celle
