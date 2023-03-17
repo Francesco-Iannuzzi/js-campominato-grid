@@ -44,14 +44,11 @@ const buttonPlay = document.querySelector('.btn_play');
 //creo una variabile che richiami il nodo dellea DOM in cui stampare la grigli
 const containerEl = document.querySelector('.container');
 
-//seleziono il nodo nella DOM del markup creato(celle)
-const cellEl = document.querySelectorAll(".cell")
-
 //selezionare l'input della modalità nella DOM e salvarlo in una variabile
 const buttonSelect = document.querySelector('.btn_select');
 
 //creo la variabile della modalità
-let mode = 'easy'
+let mode = 'easy_mode'
 
 //creo la variabile del numero massimo delle celle
 let cellNumber = 0;
@@ -60,7 +57,6 @@ const numberArray = [cellNumber - cellNumber + 1];
 
 //creare un eventListenere che richiami il nodo nella DOM del bottone che stampi la griglia
 buttonPlay.addEventListener('click', function () {
-    //console.log('cliccato');
 
     //Bonus:
 
@@ -82,10 +78,9 @@ buttonPlay.addEventListener('click', function () {
     }
 
 
-
     //creo un ciclo che stampi n volte la cella + il numero generato nel'array creato per i numeri
     for (let i = 0; i < cellNumber; i++) {
-        const cellMarkup = `<div class="cell ${mode}">${numberArray[i]}</div>`;
+        const cellMarkup = `<div class="cell ${mode} ">${numberArray[i]}</div>`;
         //console.log(cellMarkup);
 
         //lo stesso ciclo deve generare grazie al suo indice un numero incrementale tante volte quante sono le celle
@@ -93,17 +88,18 @@ buttonPlay.addEventListener('click', function () {
         //console.log(number);
         numberArray.push(number);
 
-
         containerEl.insertAdjacentHTML("beforeend", cellMarkup);
 
     }
 
-
+    //seleziono il nodo nella DOM del markup creato(celle)
+    const cellEl = document.querySelectorAll(".cell")
 
 
     //creo un ciclo per ciclare tra le celle create con l'eventListener del buttonPlay
     for (let j = 0; j < cellEl.length; j++) {
         const cellSelected = cellEl[j];
+
 
         //nel ciclo uso un eventListener che aggiunga o tolga la classe stilizzata in css che attiva o disattiva la casella
         cellSelected.addEventListener('click', function () {
