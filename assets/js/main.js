@@ -48,7 +48,8 @@ const containerEl = document.querySelector('.container');
 
 //creo la variabile del numero massimo delle celle
 const cellNumber = 100;
-const numberArray = [];
+const numberArray = [cellNumber];
+//console.log(numberArray);
 
 //creo una variabile contenente il markup da inserire
 //const cellMarkup = `<div class="cell">`
@@ -62,31 +63,34 @@ const numberArray = [];
 //creare un eventListenere che richiami il nodo nella DOM del bottone che stampi la griglia
 buttonPlay.addEventListener('click', function () {
     console.log('cliccato');
-    //creo un ciclo che stampi n volte la cella
+    //creo un ciclo che stampi n volte la cella + il numero generato nel'array creato per i numeri
     for (let i = 0; i < cellNumber; i++) {
-        const cellMarkup = `<div class="cell"></div>`;
+        const cellMarkup = `<div class="cell">${numberArray[i]}</div>`;
         //console.log(cellMarkup);
 
         //lo stesso ciclo deve generare grazie al suo indice un numero incrementale tante volte quante sono le celle
         let number = i + 1;
-        console.log(number);
+        //console.log(number);
         numberArray.push(number);
 
         containerEl.insertAdjacentHTML("beforeend", cellMarkup);
 
     }
 
+    //seleziono il nodo nella DOM del markup creato(celle)
+    const cellEl = document.querySelectorAll(".cell")
+
+    for (let j = 0; j < cellEl; j++) {
+        const cellSelected = cellEl[j];
+        cellSelected.addEventListener('click', function () {
+            cellSelected.classList.toggle('bg_active')
+            
+        })
+        
+    }
+
 })
 
 
-
-//seleziono il nodo nella DOM del markup creato(celle)
-//const cellEl = document.querySelectorAll(".cell")
-//console.log(cellEl);
-
-console.log(numberArray);
-
-//stampo nelle celle il numenero generato
-//seleziono la cella dalla DOM
 //creo un ciclo per aggiungere o togliere (toggle) una classe stilizzata in css che colori la cella e loggo il numero corrispondente alla cella in console
 
