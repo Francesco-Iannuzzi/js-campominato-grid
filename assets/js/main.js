@@ -48,7 +48,7 @@ const containerEl = document.querySelector('.container');
 
 //creo la variabile del numero massimo delle celle
 const cellNumber = 100;
-const numberArray = [cellNumber];
+const numberArray = [cellNumber - cellNumber + 1];
 //console.log(numberArray);
 
 //creo una variabile contenente il markup da inserire
@@ -69,7 +69,7 @@ buttonPlay.addEventListener('click', function () {
         //console.log(cellMarkup);
 
         //lo stesso ciclo deve generare grazie al suo indice un numero incrementale tante volte quante sono le celle
-        let number = i + 1;
+        let number = i + 1 + 1;
         //console.log(number);
         numberArray.push(number);
 
@@ -80,17 +80,22 @@ buttonPlay.addEventListener('click', function () {
     //seleziono il nodo nella DOM del markup creato(celle)
     const cellEl = document.querySelectorAll(".cell")
 
-    for (let j = 0; j < cellEl; j++) {
+
+    //creo un ciclo per ciclare tra le celle create con l'eventListener del buttonPlay
+    for (let j = 0; j < cellEl.length; j++) {
         const cellSelected = cellEl[j];
+
+        //nel ciclo uso un eventListener che aggiunga o tolga la classe stilizzata in css che attiva o disattiva la casella
         cellSelected.addEventListener('click', function () {
-            cellSelected.classList.toggle('bg_active')
-            
+        cellSelected.classList.toggle('bg_active')
+
+        //loggo il numero corrispondente alla cella in console
+        console.log(`Hai cliccato il numero:`, numberArray[j]);
+
         })
-        
+
     }
 
 })
 
-
-//creo un ciclo per aggiungere o togliere (toggle) una classe stilizzata in css che colori la cella e loggo il numero corrispondente alla cella in console
 
