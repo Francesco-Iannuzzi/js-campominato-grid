@@ -26,7 +26,7 @@ body
     font-size: 3rem;
 }
 
-.btn_play
+.btn_play, .btn_select
 {
     padding: 0.5rem 1rem;
     background-color: #FFBF00;
@@ -35,6 +35,7 @@ body
     border-radius: 2rem;
     border: 0;
 }
+
 
 .btn_play:hover
 {

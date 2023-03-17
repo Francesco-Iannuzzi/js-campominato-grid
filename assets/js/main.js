@@ -40,29 +40,38 @@ Tools:
 //creare il markup con un container al quale inseriremo in un secondo momento la griglia
 //creo un pulsante nel markup che tramite un selettore seleziono in js
 const buttonPlay = document.querySelector('.btn_play');
-//console.log(buttonPlay);
 
 //creo una variabile che richiami il nodo dellea DOM in cui stampare la grigli
 const containerEl = document.querySelector('.container');
-//console.log(containerEl);
 
 //creo la variabile del numero massimo delle celle
-const cellNumber = 100;
+let cellNumber = 0;
 const numberArray = [cellNumber - cellNumber + 1];
-//console.log(numberArray);
 
-//creo una variabile contenente il markup da inserire
-//const cellMarkup = `<div class="cell">`
-//console.log(cellMarkup);
+//Bonus:
 
-//stilizzo la cella che formerà la griglia nel css e creo un ciclo che stampi n volte la cella stilizzata
-
-//genero per la prima volta di prova la cella nel nodo della DOM dove dovrà apparire la griglia
-//containerEl.insertAdjacentHTML("beforeend", cellMarkup)
 
 //creare un eventListenere che richiami il nodo nella DOM del bottone che stampi la griglia
 buttonPlay.addEventListener('click', function () {
-    console.log('cliccato');
+    //console.log('cliccato');
+
+    //selezionare l'input della modalità nella DOM e salvarlo in una variabile
+    const buttonSelect = document.querySelector('.btn_select');
+
+    if (buttonSelect.value === 'easy') {
+        console.log(buttonSelect.value);
+        cellNumber = 100;
+
+    } else if (buttonSelect.value === 'normal') {
+        console.log(buttonSelect.value);
+        cellNumber = 81;
+
+    } else if (buttonSelect.value === 'hard') {
+        console.log(buttonSelect.value);
+        cellNumber = 49;
+
+    }
+    
     //creo un ciclo che stampi n volte la cella + il numero generato nel'array creato per i numeri
     for (let i = 0; i < cellNumber; i++) {
         const cellMarkup = `<div class="cell">${numberArray[i]}</div>`;
@@ -72,6 +81,7 @@ buttonPlay.addEventListener('click', function () {
         let number = i + 1 + 1;
         //console.log(number);
         numberArray.push(number);
+
 
         containerEl.insertAdjacentHTML("beforeend", cellMarkup);
 
@@ -87,10 +97,10 @@ buttonPlay.addEventListener('click', function () {
 
         //nel ciclo uso un eventListener che aggiunga o tolga la classe stilizzata in css che attiva o disattiva la casella
         cellSelected.addEventListener('click', function () {
-        cellSelected.classList.toggle('bg_active')
+            cellSelected.classList.toggle('bg_active')
 
-        //loggo il numero corrispondente alla cella in console
-        console.log(`Hai cliccato il numero:`, numberArray[j]);
+            //loggo il numero corrispondente alla cella in console
+            console.log(`Hai cliccato il numero:`, numberArray[j]);
 
         })
 
