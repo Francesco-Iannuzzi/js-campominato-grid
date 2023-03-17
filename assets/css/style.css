@@ -37,7 +37,7 @@ body
 }
 
 
-.btn_play:hover
+.btn_play:hover, .btn_select:hover
 {
     border: 2px solid;
     background-color: #ffd044;
@@ -58,13 +58,28 @@ body
 
 .cell
 {
-    width: calc(100% / 10);
+    /* width: calc(100% / 10); */
     border: 2px solid white;
     aspect-ratio: 1/1;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
+}
+
+.easy_mode
+{
+    width: calc(100% / 10);
+}
+
+.normal_mode
+{
+    width: calc(100% / 9);
+}
+
+.hard_mode
+{
+    width: calc(100% / 7);
 }
 
 .bg_active

@@ -44,16 +44,19 @@ const buttonPlay = document.querySelector('.btn_play');
 //creo una variabile che richiami il nodo dellea DOM in cui stampare la grigli
 const containerEl = document.querySelector('.container');
 
+//seleziono il nodo nella DOM del markup creato(celle)
+const cellEl = document.querySelectorAll(".cell")
+
 //creo la variabile del numero massimo delle celle
 let cellNumber = 0;
 const numberArray = [cellNumber - cellNumber + 1];
-
-//Bonus:
 
 
 //creare un eventListenere che richiami il nodo nella DOM del bottone che stampi la griglia
 buttonPlay.addEventListener('click', function () {
     //console.log('cliccato');
+
+    //Bonus:
 
     //selezionare l'input della modalità nella DOM e salvarlo in una variabile
     const buttonSelect = document.querySelector('.btn_select');
@@ -61,17 +64,22 @@ buttonPlay.addEventListener('click', function () {
     if (buttonSelect.value === 'easy') {
         console.log(buttonSelect.value);
         cellNumber = 100;
+        cellEl.classList.add('easy_mode');
 
     } else if (buttonSelect.value === 'normal') {
         console.log(buttonSelect.value);
         cellNumber = 81;
+        cellEl.classList.add('normal_mode');
 
     } else if (buttonSelect.value === 'hard') {
         console.log(buttonSelect.value);
         cellNumber = 49;
+        cellEl.classList.add('hard_mode');
 
     }
-    
+
+
+
     //creo un ciclo che stampi n volte la cella + il numero generato nel'array creato per i numeri
     for (let i = 0; i < cellNumber; i++) {
         const cellMarkup = `<div class="cell">${numberArray[i]}</div>`;
@@ -87,8 +95,7 @@ buttonPlay.addEventListener('click', function () {
 
     }
 
-    //seleziono il nodo nella DOM del markup creato(celle)
-    const cellEl = document.querySelectorAll(".cell")
+
 
 
     //creo un ciclo per ciclare tra le celle create con l'eventListener del buttonPlay
